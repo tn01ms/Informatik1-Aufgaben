@@ -1,10 +1,11 @@
 package aufgabe12;
 
+/**
+ * @author Tobias Die Klasse MeinLog enthält eine statische Methode welche den
+ *         natürlichen Logarithmus einer Gleitkommazahl mithilfe der Potenzreihe
+ *         näherungsweise berechnet
+ */
 public class MeinLog {
-
-	public static void main(String[] args) {
-		System.out.println(MeinLog.ln(100));
-	}
 
 	/**
 	 * Die Methode errechnet den natürlichen Logarithmus des Parameters z.
@@ -27,7 +28,6 @@ public class MeinLog {
 
 				if (x <= 1.0) {
 					double temp = 0.0;
-					System.out.println(Math.pow(x, 1) / 1);
 
 					for (int k = 1; Math.abs(Math.pow(x, k) / k) > 0.000001; k++) {
 						temp += Math.pow(x, k) / k;

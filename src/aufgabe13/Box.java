@@ -1,10 +1,25 @@
 package aufgabe13;
 
+/**
+ * Die Klasse Box symbolisiert eine Box welche Elemente beliebigen Datentyps
+ * speichern kann. Sie hat eine festgelegte Größe.
+ * 
+ * @author Tobias
+ */
 public class Box {
 
 	Element<?>[] elements;
+
+	// Wird verwendet um die Füllmenge der Box zu bestimmen
 	int index;
 
+	/**
+	 * Der Konstruktor erzeugt eine neue Box mit der Fassungsgröße n
+	 * 
+	 * @param n Gesamtgröße aller Elemente die in die Box können bevor diese voll
+	 *          ist.
+	 * @throws IllegalArgumentException wenn n < 0
+	 */
 	public Box(int n) throws IllegalArgumentException {
 		try {
 			if (n <= 0) {
@@ -18,6 +33,12 @@ public class Box {
 		}
 	}
 
+	/**
+	 * Die Methode fügt ein Element der Box hinzu.
+	 * 
+	 * @param e Das hinzuzufügende Element
+	 * @throws FullBoxException Wenn das Element nicht mehr in die Box passt
+	 */
 	public void addElement(Element<?> e) throws FullBoxException {
 		try {
 			if (e.getSize() + index <= elements.length) {
