@@ -12,6 +12,15 @@ public class Box {
 
 	// Wird verwendet um die Füllmenge der Box zu bestimmen
 	int index;
+	
+	/**
+	 * Gibt das Element an der Stelle i zurück
+	 * @param i Die Stelle des Elements
+	 * @return Das Element
+	 */
+	public Element<?> getElements(int i) {
+		return elements[i];
+	}
 
 	/**
 	 * Der Konstruktor erzeugt eine neue Box mit der Fassungsgröße n

@@ -51,4 +51,12 @@ public class Element<T> {
 	public T getValue() {
 		return value;
 	}
+	
+	@Override
+	/**
+	 * Gibt den toString-Wert des Elements zurück
+	 */
+	public String toString() {
+		return value.toString();
+	}
 }

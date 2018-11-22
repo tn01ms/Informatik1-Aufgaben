@@ -6,7 +6,10 @@ package aufgabe12;
  *         näherungsweise berechnet
  */
 public class MeinLog {
-
+	public static void main(String[] args) {
+		MeinLog.ln(-1);
+	}
+	
 	/**
 	 * Die Methode errechnet den natürlichen Logarithmus des Parameters z.
 	 * 
