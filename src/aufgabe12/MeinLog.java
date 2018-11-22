@@ -30,16 +30,15 @@ public class MeinLog {
 				double x = z - 1.0;
 
 				if (x <= 1.0) {
-					double temp = 0.0;
+					double sum = 0.0;
 
 					for (int k = 1; Math.abs(Math.pow(x, k) / k) > 0.000001; k++) {
-						temp += Math.pow(x, k) / k;
+						sum += Math.pow(x, k) / k;
 						k++;
-						temp -= Math.pow(x, k) / k;
-						System.out.println(k);
+						sum -= Math.pow(x, k) / k;
 					}
 
-					return temp;
+					return sum;
 				} else {
 					// Berechne ln rekursiv
 					return -ln(1 + (-x / (1 + x)));
