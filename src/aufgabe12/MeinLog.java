@@ -1,15 +1,17 @@
 package aufgabe12;
 
 /**
- * @author Tobias Die Klasse MeinLog enthält eine statische Methode welche den
- *         natürlichen Logarithmus einer Gleitkommazahl mithilfe der Potenzreihe
- *         näherungsweise berechnet
+ * Die Klasse MeinLog enthält eine statische Methode welche den natürlichen
+ * Logarithmus einer Gleitkommazahl mithilfe der Potenzreihe näherungsweise
+ * berechnet
+ * 
+ * @author Tobias
  */
 public class MeinLog {
 	public static void main(String[] args) {
 		MeinLog.ln(-1);
 	}
-	
+
 	/**
 	 * Die Methode errechnet den natürlichen Logarithmus des Parameters z.
 	 * 
@@ -18,35 +20,30 @@ public class MeinLog {
 	 * @throws IllegalArgumentException wenn z < 0
 	 */
 	public static double ln(double z) throws IllegalArgumentException {
-		try {
-			// Sonderfallbehandlung
-			if (z == Double.POSITIVE_INFINITY) {
-				return Double.POSITIVE_INFINITY;
-			} else if (z == 0) {
-				return Double.NEGATIVE_INFINITY;
-			} else if (z < 0) {
-				throw new IllegalArgumentException();
-			} else {
-				double x = z - 1.0;
+		// Sonderfallbehandlung
+		if (z == Double.POSITIVE_INFINITY) {
+			return Double.POSITIVE_INFINITY;
+		} else if (z == 0) {
+			return Double.NEGATIVE_INFINITY;
+		} else if (z < 0) {
+			throw new IllegalArgumentException();
+		} else {
+			double x = z - 1.0;
 
-				if (x <= 1.0) {
-					double sum = 0.0;
+			if (x <= 1.0) {
+				double sum = 0.0;
 
-					for (int k = 1; Math.abs(Math.pow(x, k) / k) > 0.000001; k++) {
-						sum += Math.pow(x, k) / k;
-						k++;
-						sum -= Math.pow(x, k) / k;
-					}
-
-					return sum;
-				} else {
-					// Berechne ln rekursiv
-					return -ln(1 + (-x / (1 + x)));
+				for (int k = 1; Math.abs(Math.pow(x, k) / k) > 0.000001; k++) {
+					sum += Math.pow(x, k) / k;
+					k++;
+					sum -= Math.pow(x, k) / k;
 				}
+
+				return sum;
+			} else {
+				// Berechne ln rekursiv
+				return -ln(1 + (-x / (1 + x)));
 			}
-		} catch (IllegalArgumentException e) {
-			System.out.println("Illegal Argument: z has to be bigger than or equal to 0");
-			return 0;
 		}
 	}
 }

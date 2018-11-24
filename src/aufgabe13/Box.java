@@ -57,7 +57,7 @@ public class Box {
 				throw new FullBoxException();
 			}
 		} catch (FullBoxException ex) {
-			System.out.println("FullBoxException: Box is full!");
+			ex.printStackTrace();
 		}
 	}
 }

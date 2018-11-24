@@ -9,4 +9,7 @@ package aufgabe13;
  */
 public class FullBoxException extends java.lang.Exception {
 
+	public FullBoxException() {
+		super("FullBoxException: Box is full!");
+	}
 }
