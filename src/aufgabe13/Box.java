@@ -60,4 +60,13 @@ public class Box {
 			ex.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Gibt das Array elements zurück
+	 * @return Das Array
+	 */
+	@SuppressWarnings("rawtypes")
+	public Element[] getElements() {
+		return elements;
+	}
 }
