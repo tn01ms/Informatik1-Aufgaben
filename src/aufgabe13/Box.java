@@ -65,8 +65,7 @@ public class Box {
 	 * Gibt das Array elements zurück
 	 * @return Das Array
 	 */
-	@SuppressWarnings("rawtypes")
-	public Element[] getElements() {
+	public Element<?>[] getElements() {
 		return elements;
 	}
 }
