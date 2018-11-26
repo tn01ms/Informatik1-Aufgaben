@@ -1,34 +1,21 @@
 package aufgabe14;
 
 public enum OpCode {
-	PUSH, ADD, SUB, JUMP, STOP;
+	PUSH(1,1), ADD(2,1), SUB(2,1), JUMP(1,0), STOP(0,0);
+	
+	private int consumes;
+	private int produces;
+	
+	private OpCode(int c, int p) {
+		this.consumes = c;
+		this.produces = p;
+	}
 
 	public int getConsumes() {	
-		switch (this) {
-		case STOP:
-			return 0;
-		case PUSH:
-		case JUMP:
-			return 1;
-		case ADD:
-		case SUB:
-			return 2;
-		default:
-			return -1;
-		}
+		return consumes;
 	}
 
 	public int getProduces() {	
-		switch (this) {
-		case STOP:
-		case JUMP:
-			return 0;
-		case PUSH:
-		case ADD:
-		case SUB:
-			return 1;
-		default:
-			return -1;
-		}
+		return produces;
 	}
 }
