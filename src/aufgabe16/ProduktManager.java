@@ -18,7 +18,8 @@ public class ProduktManager {
 	 * @param p Der Produkt-Stream
 	 * @return Anzahl der schweren Produkte
 	 */
-	public long getAnzahlSchwereProdukte(Stream<Produkt> p) {
+	public long getAnzahlSchwereProdukte(List<Produkt> products) {
+		Stream<Produkt> p = products.parallelStream();
 		return p.filter(i -> i.getGewichtInGramm() >= 50000).count();
 	}
 
