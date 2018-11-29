@@ -10,7 +10,7 @@ import java.util.stream.Stream;
  * @author Tobias
  *
  */
-public class ProduktManager {
+public class ProduktManager {	
 
 	/**
 	 * Zählt alle Produkte im Stream mit mehr als 50KG Gewicht
@@ -35,15 +35,16 @@ public class ProduktManager {
 	public boolean passtAufLKW(LKW lkw, List<Produkt> products) {
 		// Stream öffnen
 		Stream<Produkt> p = products.parallelStream();
-		// KG summieren
-		int curKG = p.mapToInt(i -> i.getGewichtInGramm()).sum();
+		// Gramm summieren und in KG umrechnen
+		double curKG = p.mapToDouble(i -> i.getGewichtInGramm()).sum() / 1000;
+		
 		// Stream erneut öffnen
 		p = products.parallelStream();
-		// Volumen summieren
-		double curVol = p.mapToDouble(i -> i.getVolumenCM3()).sum();
+		// Volumen summieren und passend umrechnen
+		double curVol = p.mapToDouble(i -> i.getVolumenCM3()).sum() / 1000000;
 
 		// Maximalwerte
-		int maxKG = lkw.getMaxGewichtInKG();
+		double maxKG = (double) lkw.getMaxGewichtInKG();
 		double maxVol = lkw.getMaxM3Volumen();
 
 		return (curKG <= maxKG && curVol <= maxVol);
